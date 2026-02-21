@@ -1720,6 +1720,27 @@ img {
    ========================================= */
 
 @media (max-width: 768px) {
+    /* =========================================
+       Adicione isso DENTRO do @media (max-width: 768px)
+       ========================================= */
+
+    /* Garante que o HTML inteiro trave o eixo X (o Safari precisa disso) */
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+        position: relative;
+    }
+
+    /* Altera a lógica do menu de 'right' para 'transform' */
+    .nav-links {
+        right: 0 !important; /* Anula o right: -100% antigo */
+        transform: translateX(100%); /* Joga o menu 100% para fora da tela */
+        transition: transform 0.3s ease-in-out !important; /* Anima o movimento */
+    }
+
+    .nav-links.nav-active {
+        transform: translateX(0) !important; /* Traz o menu de volta pra tela */
+    }
     /* 1. Conserto do Cabeçalho (Evita sobreposição) */
     body {
         padding-top: 0 !important; /* Remove padding fixo */
