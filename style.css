@@ -1726,16 +1726,21 @@ img {
     }
 
     .urgency-bar {
-        position: static; /* Remove o fixed para empurrar o site naturalmente */
-        padding: 12px 15px;
-        height: auto;
+        position: static;
+        width: 100%;
+        max-width: 100vw; /* Garante que não passe da tela */
+        overflow: hidden; /* Trava qualquer vazamento */
+        padding: 10px 15px;
     }
     
     .urgency-bar p {
-        flex-direction: column; /* Empilha ícone e texto se faltar espaço */
-        gap: 5px;
+        display: flex;
+        flex-wrap: wrap; /* O segredo aqui: permite que o texto quebre linha */
+        justify-content: center;
+        text-align: center;
+        line-height: 1.4; /* Melhora a leitura quando quebra linha */
+        gap: 5px; /* Espaço entre o ícone e o texto */
     }
-
     .navbar {
         position: sticky; /* Sticky é mais seguro que Fixed aqui */
         top: 0;
